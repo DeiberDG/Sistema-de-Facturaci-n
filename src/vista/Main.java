@@ -17,12 +17,7 @@ public class Main extends javax.swing.JFrame {
         MostrarPanel(vistaLogin);
     }
 
-    // Este metodo cambia el icono de la aplicacion
-    @Override
-    public Image getIconImage(){
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/Logo.png"));
-        return retValue;
-    }
+
     
     private void MostrarPanel (JPanel p){
         p.setSize(990, 730);

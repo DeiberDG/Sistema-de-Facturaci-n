@@ -3,6 +3,8 @@ package vista;
 import controlador.Controlador_Usuario;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
 import modelo.Usuario;
 
 public class FrameLogin extends javax.swing.JFrame {
@@ -11,10 +13,24 @@ public class FrameLogin extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Login - GoFac"); // Esto Cambia el titulo de la ventana
         this.setSize(new Dimension(990, 730)); // Esto cambia la dimension de la ventana
+        this.setLocationRelativeTo(null); // Esto hace que el JFrame aparezca centrado   
     }
     
-
-
+        // Este metodo cambia el icono de la aplicacion
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/Logo.png"));
+        return retValue;
+    }
+    
+    public static void main(String args[]) {
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameLogin().setVisible(true);
+            }
+        });
+    }
     
     
     /**
@@ -308,8 +324,12 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void text_userKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_userKeyPressed
         // Esto hace que cuando se presione la tecla ENTER se pase al TextField de la contraseña
-        if (evt.getKeyCode() == evt.VK_ENTER){
+        if (evt.getKeyCode() == evt.VK_ENTER || evt.getKeyCode() == evt.VK_TAB){
             text_password.requestFocus();
+            if (String.valueOf(text_password.getPassword()).equals("****************")){
+                text_password.setText(""); // Esto hace que el textField se borre cuando se pone el cursor
+                text_password.setForeground(Color.black); // Pone de color negro lo que pongamos en el campo
+            }
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_text_userKeyPressed
