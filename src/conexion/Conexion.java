@@ -9,7 +9,7 @@ public class Conexion {
         
         try{
             
-            Connection conex = DriverManager.getConnection("jdbc:mysql://localhost/bd_GoFacPOS", "root", "");
+            Connection conex = DriverManager.getConnection("jdbc:mysql://localhost/bd_GoFacPOS", "root", "1234");
             return conex; // Aqui se hace la coneccion con la base de datos
             
         }catch (SQLException e){
